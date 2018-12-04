@@ -11,7 +11,7 @@ const defaultState = {
 }
 
 /* state: previous Store save data */
-/* action: Store pass to Reducer `type` */
+/* action: Store pass to Reducer `actionTypes` */
 export default (state = defaultState, action) => {
   if (action.type === CHANGE_INPUT_VALUE) {
     /* copy, because Reducer accept state, can't modify state */

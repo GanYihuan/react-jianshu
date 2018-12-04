@@ -1,4 +1,5 @@
 ﻿import React, { Component } from 'react'
+// import axios from 'axios'
 import store from './store/index'
 // import {
 // 	CHANGE_INPUT_VALUE,
@@ -7,22 +8,25 @@ import store from './store/index'
 // } from './store/actionTypes'
 import {
 	getInputChangeAction,
-	getAddItemAction,
+  getAddItemAction,
+  // initListAction, 
+  // getTodoList,
+  getInitList,
 	getDeleteItemAction
 } from './store/actionCreators'
 import TodoListUI from './TodoListUI'
 
 class TodoList extends Component {
-	constructor(props) {
-		super(props)
-		this.state = store.getState()
-		this.handleInputChange = this.handleInputChange.bind(this)
-		this.handleStoreChange = this.handleStoreChange.bind(this)
-		this.handleBtnClick = this.handleBtnClick.bind(this)
-		this.handleItemClick = this.handleItemClick.bind(this)
-		/* Store data change, func invoked */
-		store.subscribe(this.handleStoreChange)
-	}
+  constructor(props) {
+    super(props)
+    this.state = store.getState()
+    this.handleInputChange = this.handleInputChange.bind(this)
+    this.handleStoreChange = this.handleStoreChange.bind(this)
+    this.handleBtnClick = this.handleBtnClick.bind(this)
+    this.handleItemClick = this.handleItemClick.bind(this)
+    /* Store data change, func invoked */
+    store.subscribe(this.handleStoreChange)
+  }
 
 	render() {
 		return (
@@ -34,7 +38,34 @@ class TodoList extends Component {
 				handleItemClick={this.handleItemClick}
 			/>
 		)
-	}
+  }
+  
+  /* 组件被挂载到页面之后执行, get ajax data */
+  componentDidMount() {
+    // axios
+    // 	.get('/api/todolist')
+    // 	.then(res => {
+    //     const data = res.data
+    //     const action = initListAction(data)
+    //     store.dispatch(action)
+    // 		  this.setState(() => {
+    // 		   	return {
+    // 		   		list: [...res.data]
+    // 		   	}
+    // 		 })
+    // 	})
+    // 	.catch(() => {
+    // 		alert('err')
+    // 	})
+
+    /* redux-thunk */
+    // const action = getTodoList()
+    // store.dispatch(action)
+
+    /* redux-saga */
+    const action = getInitList()
+    store.dispatch(action)
+  }
 
 	handleStoreChange() {
 		this.setState(store.getState())

@@ -79,3 +79,13 @@ cnpm install babel-plugin-transform-decorators-legacy -D
 2. cross-platform React Native
 
 ## redux 分支
+
+## 无状态组件
+
+## axios
+
+## redux-thunk
+
+## redux-saga
+
+## react-redux
