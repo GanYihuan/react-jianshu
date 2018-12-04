@@ -23,9 +23,9 @@ cnpm i create-react-app -g
 cnpm install react-transition-group -S
 cnpm install styled-components -S
 cnpm install antd -S
+cnpm install redux -S
 cnpm install redux-thunk -S
-cnpm install redux-saga -S
-cnpm install react-redux -S
+cnpm install redux-saga -S  cnpm install react-redux -S
 cnpm install babel-plugin-transform-decorators-legacy -D
 ```
 
@@ -77,3 +77,5 @@ cnpm install babel-plugin-transform-decorators-legacy -D
 
 1. performance optimize (JS object)
 2. cross-platform React Native
+
+## redux 分支
