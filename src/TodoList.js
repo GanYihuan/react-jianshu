@@ -1,14 +1,17 @@
 ﻿import React, { Component, Fragment } from 'react'
+import axios from 'axios'
 import TodoItem from './TodoItem'
 
 class TodoList extends Component {
+  /*
+  Initialization (life circle)
+  setup props and state
+  */
+  /* constuctor() simular life circle, component init will run */
   constructor(props) {
     /* invoked father constructor */
     super(props)
-    /*
-    data define
-    render() re-render when state and props change
-    */
+    /* when state and props change render() re-render */
     this.state = {
       inputValue: '',
       list: []
@@ -19,6 +22,7 @@ class TodoList extends Component {
   }
 
   render() {
+    console.log('render()')
     return (
       /* <Fragment>: package component, placeholder */
       <Fragment>
@@ -30,6 +34,7 @@ class TodoList extends Component {
             className='input'
             value={this.state.inputValue}
             onChange={this.handleInputChange}
+            // this.input -> input dom element, input -> accept params
             ref={input => {
               this.input = input
             }}
@@ -45,6 +50,46 @@ class TodoList extends Component {
         </ul>
       </Fragment>
     )
+  }
+
+  /* Mounting (life circle) */
+  /* component soon mount in page */
+  componentWillMount() {
+    console.log('componentWillMount')
+  }
+  // render()
+  /* component mount in page after, get sync data */
+  componentDidMount() {
+    console.log('componentDidMount')
+    axios
+      .get('/api/todolist')
+      .then(res => {
+        console.log(res.data)
+        this.setState(() => {
+          return {
+            list: [...res.data]
+          }
+        }) 
+      })
+      .catch(() => {
+        console.log('err')
+      })
+  }
+
+  /* Updation (life circle) */
+  /* component update before, your component need to update ? */
+  shouldComponentUpdate() {
+    console.log('shouldComponentUpdate')
+    return true
+  }
+  /* component update before, shouldComponentUpdate return true will carried out */
+  componentWillUpdate() {
+    console.log('componentWillUpdate')
+  }
+  // render()
+  /* component update after */
+  componentDidUpdate() {
+    console.log('componentDidUpdate')
   }
 
   getTodoItem() {
@@ -69,10 +114,9 @@ class TodoList extends Component {
   }
 
   handleInputChange(e) {
-    /*
-    target: <input> dom element
-    const value = e.target.value
-    */
+    /* e.target: <input> dom element */
+    // const value = e.target.value
+    /* this.input -> 'ref=input' dom element */
     const value = this.input.value
     // this.setState({
     // 	inputValue: e.target.value
