@@ -67,18 +67,18 @@ export const SearchWrapper = styled.div`
 export const NavSearch = styled.input.attrs({
   placeholder: '搜索'
 })`
-  width: 160px;
-  height: 38px;
-  padding: 0 30px 0 20px;
+  box-sizing: border-box;
   margin-top: 9px;
   margin-left: 20px;
-  box-sizing: border-box;
+  padding: 0 30px 0 20px;
   border: none;
   border-radius: 19px;
+  width: 160px;
+  height: 38px;
   font-size: 14px;
   color: #666;
-  outline: none;
   background: #eee;
+  outline: none;
   &::placeholder {
     color: #999;
   }
