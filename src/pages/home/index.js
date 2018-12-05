@@ -5,8 +5,13 @@ import List from './components/List'
 import Recommend from './components/Recommend'
 import Writer from './components/Writer'
 import { actionCreators } from './store'
-import { BackTop } from './style'
-import { HomeWrapper, HomeLeft, HomeRight } from './style'
+// import { BackTop } from './style'
+import {
+  HomeWrapper,
+  HomeLeft,
+  HomeRight,
+  BackTop
+} from './style'
 
 /* PureComponent has invoked shouldComponentUpdate() */
 class Home extends PureComponent {
@@ -17,8 +22,8 @@ class Home extends PureComponent {
         <HomeLeft>
           <img
             className="banner-img"
-            alt=""
             src="//upload.jianshu.io/admin_banners/web_images/4318/60781ff21df1d1b03f5f8459e4a1983c009175a5.jpg?imageMogr2/auto-orient/strip|imageView2/1/w/1250/h/540"
+            alt="banner-img"
           />
           <Topic />
           <List />
@@ -27,14 +32,19 @@ class Home extends PureComponent {
           <Recommend />
           <Writer />
         </HomeRight>
-        {showScroll ? (
-          <BackTop onClick={this.handleScrollTop}>顶部</BackTop>
-        ) : null}
+        {/* <BackTop onClick={this.handleScrollTop}>顶部</BackTop> */}
+        {
+          showScroll
+            ?
+            <BackTop onClick={this.handleScrollTop}>顶部</BackTop>
+            :
+            null
+        }
       </HomeWrapper>
     )
   }
 
-  /* async handle */
+  /* async request */
   componentDidMount() {
     const { changeHomeData } = this.props
     changeHomeData()

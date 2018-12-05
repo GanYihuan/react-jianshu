@@ -17,19 +17,23 @@ const addHomeList = (list, nextPage) => ({
 
 export const getHomeInfo = () => {
   return dispatch => {
-    axios.get('/api/home.json').then(res => {
-      const result = res.data.data
-      dispatch(changHomeData(result))
-    })
+    axios
+      .get('/api/home.json')
+      .then(res => {
+        const result = res.data.data
+        dispatch(changHomeData(result))
+      })
   }
 }
 
 export const getMoreList = page => {
   return dispatch => {
-    axios.get('/api/homeList.json?page=' + page).then(res => {
-      const result = res.data.data
-      dispatch(addHomeList(result, page + 1))
-    })
+    axios
+      .get('/api/homeList.json?page=' + page)
+      .then(res => {
+        const result = res.data.data
+        dispatch(addHomeList(result, page + 1))
+      })
   }
 }
 

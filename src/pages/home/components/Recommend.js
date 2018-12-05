@@ -7,12 +7,13 @@ class Recommend extends PureComponent {
     const { list } = this.props
     return (
       <RecommendWrapper>
-        {list.map(item => {
-          return (
-            /* open http://localhost:3000/api/home.json inside photo */
-            <RecommendItem key={item.get('id')} imgUrl={item.get('imgUrl')} />
-          )
-        })}
+        {
+          list.map(item => {
+            return (
+              <RecommendItem key={item.get('id')} imgUrl={item.get('imgUrl')} />
+            )
+          })
+        }
       </RecommendWrapper>
     )
   }
