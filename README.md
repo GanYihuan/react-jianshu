@@ -4,7 +4,7 @@
 
 ## 效果图
 
-![效果图]("./public/效果图.png")
+![效果图](http://phru39kpg.bkt.clouddn.com/%E6%95%88%E6%9E%9C%E5%9B%BE.png)
 
 ## 运行
 
