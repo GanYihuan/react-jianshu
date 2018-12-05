@@ -93,3 +93,11 @@ cnpm install babel-plugin-transform-decorators-legacy -D
 ## project-header 分支
 
 ## Styled-Components
+
+## XAMPP
+
+- localhost:80
+- /Applications/XAMPP/htdocs
+- npm run build
+- build inside file copy to XAMPP htdocs file
+- chrome open localhost:80
