@@ -21,7 +21,6 @@ export default (state = defaultState, action) => {
       return state.set('focused', false)
     case constants.CHANGE_LIST:
       /* list is imutable array, action.data is normal array, set() func list change to action.data got wrong */
-      // return state.set('list', action.data)
       /* merge(): immutable func, at the same time change multi content */
       return state.merge({
         /* **actionCreator.js** transform imutable array, data: fromJS(data) */
@@ -33,6 +32,7 @@ export default (state = defaultState, action) => {
     case constants.MOUSE_LEAVE:
       return state.set('mouseIn', false)
     case constants.CHANGE_PAGE:
+      /* action.page: actionCreator data */
       return state.set('page', action.page)
     default:
       return state
