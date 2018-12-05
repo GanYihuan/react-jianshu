@@ -21,56 +21,6 @@ import {
 } from './style'
 
 class Header extends Component {
-  getListArea() {
-    const {
-      focused,
-      list,
-      page,
-      totalPage,
-      mouseIn,
-      handleMouseEnter,
-      handleMouseLeave,
-      handleChangePage
-    } = this.props
-    // list imutable array, toJS() changeform js array
-    const newList = list.toJS()
-    const pageList = []
-    // async, when has data execute
-    if (newList.length) {
-      for (let i = (page - 1) * 10; i < page * 10; i++) {
-        pageList.push(
-          <SearchInfoItem key={newList[i]}>{newList[i]}</SearchInfoItem>
-        )
-      }
-    }
-    if (focused || mouseIn) {
-      return (
-        <SearchInfo
-          onMouseEnter={handleMouseEnter}
-          onMouseLeave={handleMouseLeave}
-        >
-          <SearchInfoTitle>
-            热门搜索
-						<SearchInfoSwitch onClick={() => handleChangePage(page, totalPage, this.spinIcon)}>
-              <i
-                ref={icon => {
-                  this.spinIcon = icon
-                }}
-                className="iconfont spin"
-              >
-                &#xe631;
-							</i>
-              换一批
-						</SearchInfoSwitch>
-          </SearchInfoTitle>
-          <SearchInfoList>{pageList}</SearchInfoList>
-        </SearchInfo>
-      )
-    } else {
-      return null
-    }
-  }
-
   render() {
     const {
       focused,
@@ -86,6 +36,9 @@ class Header extends Component {
         <Nav>
           <NavItem className="left active">首页</NavItem>
           <NavItem className="left">下载App</NavItem>
+          <Link to="/login">
+            <NavItem className="right">登陆</NavItem>
+          </Link>
           {/* {login ? (
 						<NavItem className="right" onClick={logout}>
 							退出
@@ -128,14 +81,66 @@ class Header extends Component {
       </HeaderWrapper>
     )
   }
+
+  getListArea() {
+    const {
+      focused,
+      list,
+      page,
+      totalPage,
+      mouseIn,
+      handleMouseEnter,
+      handleMouseLeave,
+      handleChangePage
+    } = this.props
+    /* list imutable array, toJS() changeform js array */
+    const newList = list.toJS()
+    const pageList = []
+    /* async, when has data execute */
+    if (newList.length) {
+      for (let i = (page - 1) * 10; i < page * 10; i++) {
+        pageList.push(
+          <SearchInfoItem key={newList[i]}>{newList[i]}</SearchInfoItem>
+        )
+      }
+    }
+    if (focused || mouseIn) {
+      return (
+        <SearchInfo
+          onMouseEnter={handleMouseEnter}
+          onMouseLeave={handleMouseLeave}
+        >
+          <SearchInfoTitle>
+            热门搜索
+						<SearchInfoSwitch onClick={() => handleChangePage(page, totalPage, this.spinIcon)}>
+              <i
+                className="iconfont spin"
+                ref={icon => {
+                  this.spinIcon = icon
+                }}
+              >
+                &#xe631;
+							</i>
+              换一批
+						</SearchInfoSwitch>
+          </SearchInfoTitle>
+          <SearchInfoList>{pageList}</SearchInfoList>
+        </SearchInfo>
+      )
+    } else {
+      return null
+    }
+  }
 }
 
 const mapStateToProps = state => {
   return {
     // focused: state.header.focused,
-    // state is js obj, header is immutable obj
-    // redux-immutable unify data format, change state, header to immutable obj
-    // getIn(): immutable data invoked
+    /*
+    .state is js obj, .header is immutable obj
+    redux-immutable unify data format, .state .header become immutable obj
+    getIn(): immutable data invoked
+    */
     focused: state.getIn(['header', 'focused']),
     list: state.getIn(['header', 'list']),
     page: state.getIn(['header', 'page']),
@@ -148,8 +153,7 @@ const mapStateToProps = state => {
 const mapDispathToProps = dispatch => {
   return {
     handleInputFocus(list) {
-      // prevent continued send ajax request
-      // if not data, request data
+      /* prevent continued send ajax request, if not data, request data */
       list.size === 0 && dispatch(actionCreators.getList())
       dispatch(actionCreators.searchFocus())
     },
@@ -163,7 +167,7 @@ const mapDispathToProps = dispatch => {
       dispatch(actionCreators.mouseLeave())
     },
     handleChangePage(page, totalPage, spin) {
-      // Replace the unit
+      /* replace unit */
       let originAngle = spin.style.transform.replace(/[^0-9]/gi, '')
       if (originAngle) {
         originAngle = parseInt(originAngle, 10)

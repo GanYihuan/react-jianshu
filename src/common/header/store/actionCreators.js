@@ -4,7 +4,7 @@ import * as constants from './constants'
 
 const changeList = data => ({
   type: constants.CHANGE_LIST,
-  // changeform imutable array
+  /* data changeform to imutable array */
   data: fromJS(data),
   totalPage: Math.ceil(data.length / 10)
 })
@@ -30,7 +30,7 @@ export const changePage = page => ({
   page
 })
 
-// redux-thunk may actionCreator write func
+/* redux-thunk 中间件使 action 能返回函数, async */
 export const getList = () => {
   return dispatch => {
     axios

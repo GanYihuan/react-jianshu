@@ -103,8 +103,8 @@ export const SearchInfo = styled.div`
   position: absolute;
   left: 0;
   top: 56px;
-  width: 240px;
   padding: 0 20px;
+  width: 240px;
   box-shadow: 0 0 8px rgba(0, 0, 0, 0.2);
   background: #fff;
 `
@@ -122,10 +122,10 @@ export const SearchInfoSwitch = styled.span`
   font-size: 13px;
   cursor: pointer;
   .spin {
-    display: block;
     float: left;
-    font-size: 12px;
+    display: block;
     margin-right: 2px;
+    font-size: 12px;
     transition: all 0.2s ease-in;
     transform-origin: center center;
   }
@@ -136,16 +136,16 @@ export const SearchInfoList = styled.div`
 `
 
 export const SearchInfoItem = styled.a`
-  display: block;
   float: left;
+  display: block;
   line-height: 20px;
-  padding: 0 5px;
   margin-right: 10px;
   margin-bottom: 15px;
-  font-size: 12px;
+  padding: 0 5px;
   border: 1px solid #ddd;
-  color: #787878;
   border-radius: 3px;
+  font-size: 12px;
+  color: #787878;
 `
 
 export const Addition = styled.div`

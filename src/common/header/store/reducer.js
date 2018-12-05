@@ -1,29 +1,30 @@
-import * as constants from './constants'
 import { fromJS } from 'immutable'
+import * as constants from './constants'
 
-// imutable obj
+/* imutable obj can't modify */
 const defaultState = fromJS({
   focused: false,
   mouseIn: false,
-  // imutable array
+  /* imutable array */
   list: [],
   page: 1,
   totalPage: 1
 })
 
-// reduxer can't change origin state, return new state
-// immutable.js can achieve
+/* reduxer can't change origin state, immutable.js help you */
 export default (state = defaultState, action) => {
   switch (action.type) {
     case constants.SEARCH_FOCUS:
-      // set(): immutable func, combine before immutable obj value and set value, return new data
+      /* set(): immutable func, according to before immutable obj value and set value, return new data */
       return state.set('focused', true)
     case constants.SEARCH_BLUR:
       return state.set('focused', false)
     case constants.CHANGE_LIST:
-      // merge(): immutable func, Simultaneously change multi content
+      /* list is imutable array, action.data is normal array, set() func list change to action.data got wrong */
+      // return state.set('list', action.data)
+      /* merge(): immutable func, at the same time change multi content */
       return state.merge({
-        // **actionCreator.js** transform imutable array, data: fromJS(data)
+        /* **actionCreator.js** transform imutable array, data: fromJS(data) */
         list: action.data,
         totalPage: action.totalPage
       })
