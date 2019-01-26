@@ -28,10 +28,10 @@ class TodoList extends Component {
       <Fragment>
         <div>
           {/* htmlFor: like 'for', focus cursor */}
-          <label htmlFor='insert'>input value:</label>
+          <label htmlFor="insert">input value:</label>
           <input
-            id='insert'
-            className='input'
+            id="insert"
+            className="input"
             value={this.state.inputValue}
             onChange={this.handleInputChange}
             // this.input -> input dom element, input -> accept params
@@ -69,7 +69,7 @@ class TodoList extends Component {
           return {
             list: [...res.data]
           }
-        }) 
+        })
       })
       .catch(() => {
         console.log('err')
@@ -107,7 +107,11 @@ class TodoList extends Component {
             {item}
           </li>
           */}
-          <TodoItem content={item} index={index} deleteItem={this.handleItemDelete} />
+          <TodoItem
+            content={item}
+            index={index}
+            deleteItem={this.handleItemDelete}
+          />
         </div>
       )
     })
@@ -121,7 +125,7 @@ class TodoList extends Component {
     // this.setState({
     // 	inputValue: e.target.value
     // })
-    /* Can be omitted 'return', async Performance optimization */
+    /* Can omitted 'return', async Performance optimization */
     this.setState(() => {
       return {
         inputValue: value

@@ -10,6 +10,7 @@ class TodoItem extends Component {
   render() {
     /* father component render(), child component render() */
     console.log('child render()')
+    // get father pass func&data
     const { content, test } = this.props
     return (
       <div onClick={this.handleClick}>
@@ -45,6 +46,7 @@ class TodoItem extends Component {
   }
 
   handleClick() {
+    // get father pass func&data
     const { deleteItem, index } = this.props
     deleteItem(index)
   }
