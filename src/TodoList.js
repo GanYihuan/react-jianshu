@@ -21,6 +21,7 @@ class TodoList extends Component {
     this.handleItemDelete = this.handleItemDelete.bind(this)
   }
 
+  // state change, render invoked
   render() {
     console.log('render()')
     return (
@@ -34,7 +35,7 @@ class TodoList extends Component {
             className="input"
             value={this.state.inputValue}
             onChange={this.handleInputChange}
-            // this.input -> input dom element, input -> accept params
+            // this.input -> input dom element
             ref={input => {
               this.input = input
             }}

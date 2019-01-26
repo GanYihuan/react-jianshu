@@ -8,7 +8,7 @@ class TodoItem extends Component {
   }
 
   render() {
-    /* father component render(), child component render() */
+    /* father render(), child render() */
     console.log('child render()')
     // get father pass func&data
     const { content, test } = this.props
@@ -55,7 +55,7 @@ class TodoItem extends Component {
 /* income parameter verify */
 TodoItem.propTypes = {
   test: PropTypes.string.isRequired,
-  content: PropTypes.oneOfType([PropTypes.string, PropTypes.string]),
+  content: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
   deleteItem: PropTypes.func,
   index: PropTypes.number
   // a: PropTypes.array
