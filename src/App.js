@@ -25,11 +25,11 @@ class App extends Component {
           classNames='fade'
           // css hide, dom will remove
           unmountOnExit
-          // Execute after the end of the animation
+          // execute after the end of the animation
           onEntered={el => {
             el.style.color = '#f00'
           }}
-          // first show has animation, create .fade-appear to `<div>hello</div>`
+          // first show, create .fade-appear to `<div>hello</div>`
           appear={true}
         >
           <div>hello</div>
