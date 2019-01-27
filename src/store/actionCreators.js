@@ -27,26 +27,26 @@ export const initListAction = data => ({
 })
 
 /* redux-thunk 中间件使 action 能返回函数, async */
-// export const getTodoList = () => {
-// 	return dispatch => {
-// 		axios
-// 			.get('/todolist.json')
-// 			.then(res => {
-// 				const data = res.data
-// 				const action = initListAction(data)
-// 				dispatch(action)
-// 				// store.dispatch(action)
-// 				// this.setState(() => {
-// 				// 	return {
-// 				// 		list: [...res.data]
-// 				// 	}
-// 				// })
-// 			})
-// 			.catch(() => {
-// 				alert('err')
-// 			})
-// 	}
-// }
+export const getTodoList = () => {
+	return dispatch => {
+		axios
+			.get('/todolist.json')
+			.then(res => {
+				const data = res.data
+				const action = initListAction(data)
+				dispatch(action)
+				// store.dispatch(action)
+				// this.setState(() => {
+				// 	return {
+				// 		list: [...res.data]
+				// 	}
+				// })
+			})
+			.catch(() => {
+				alert('err')
+			})
+	}
+}
 
 /* redux-saga */
 export const getInitList = () => ({
