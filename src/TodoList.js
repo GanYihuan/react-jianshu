@@ -59,12 +59,12 @@ class TodoList extends Component {
     // 	})
 
     /* redux-thunk */
-    const action = getTodoList()
-    store.dispatch(action)
+    // const action = getTodoList()
+    // store.dispatch(action)
 
     /* redux-saga */
-    // const action = getInitList()
-    // store.dispatch(action)
+    const action = getInitList()
+    store.dispatch(action)
   }
 
 	handleStoreChange() {
