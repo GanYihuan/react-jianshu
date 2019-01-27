@@ -24,7 +24,7 @@ class TodoList extends Component {
     this.handleStoreChange = this.handleStoreChange.bind(this)
     this.handleBtnClick = this.handleBtnClick.bind(this)
     this.handleItemClick = this.handleItemClick.bind(this)
-    /* Store data change, func invoked */
+    /* Store change, invoked */
     store.subscribe(this.handleStoreChange)
   }
 
