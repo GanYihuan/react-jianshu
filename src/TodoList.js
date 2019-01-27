@@ -9,7 +9,7 @@ import store from './store/index'
 import {
 	getInputChangeAction,
   getAddItemAction,
-  // initListAction, 
+  // initListAction,
   // getTodoList,
   getInitList,
 	getDeleteItemAction
@@ -39,7 +39,7 @@ class TodoList extends Component {
 			/>
 		)
   }
-  
+
   /* 组件被挂载到页面之后执行, get ajax data */
   componentDidMount() {
     // axios

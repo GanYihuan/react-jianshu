@@ -8,11 +8,11 @@ const TodoListUI = props => {
   return (
     <div style={{ margin: '10px' }}>
       <div>
-        <Input 
-          placeholder='input' 
-          style={{ width: '300px', marginRight: '10px' }} 
-          value={props.inputValue} 
-          onChange={props.handleInputChange} 
+        <Input
+          placeholder='input'
+          style={{ width: '300px', marginRight: '10px' }}
+          value={props.inputValue}
+          onChange={props.handleInputChange}
         />
         <Button type='primary' onClick={props.handleBtnClick}>
           submit

@@ -1,8 +1,8 @@
-﻿import { 
-  CHANGE_INPUT_VALUE, 
-  ADD_TODO_ITEM, 
-  DELETE_TODO_ITEM, 
-  INIT_LIST_ACTION 
+﻿import {
+  CHANGE_INPUT_VALUE,
+  ADD_TODO_ITEM,
+  DELETE_TODO_ITEM,
+  INIT_LIST_ACTION
 } from './actionTypes'
 
 const defaultState = {
