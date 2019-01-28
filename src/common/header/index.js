@@ -171,7 +171,7 @@ const mapDispathToProps = dispatch => {
      * @param {num} page 页码
      * @param {num} totalPage 总页码
      * @param {num} spin 换一换图标 dom 节点
-     * @return: 
+     * @return:
      */
     handleChangePage(page, totalPage, spin) {
       /* replace unit */
