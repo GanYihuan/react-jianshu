@@ -15,15 +15,13 @@ const defaultState = fromJS({
 export default (state = defaultState, action) => {
   switch (action.type) {
     case constants.SEARCH_FOCUS:
-      /* set(): immutable func, according to before immutable obj value and set value, return new data */
+      /* set(): immutable func */
       return state.set('focused', true)
     case constants.SEARCH_BLUR:
       return state.set('focused', false)
     case constants.CHANGE_LIST:
-      /* list is imutable array, action.data is normal array, set() func list change to action.data got wrong */
       /* merge(): imutable func, at the same time change multi content */
       return state.merge({
-        /* **actionCreator.js** transform imutable array, data: fromJS(data) */
         list: action.data,
         totalPage: action.totalPage
       })

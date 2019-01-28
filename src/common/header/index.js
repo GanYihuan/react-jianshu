@@ -94,10 +94,10 @@ class Header extends Component {
       handleMouseLeave,
       handleChangePage
     } = this.props
-    /* list imutable array, toJS() changeform js array */
+    /* list imutable array, toJS() changeform to noraml array */
     const newList = list.toJS()
     const pageList = []
-    /* async, when has data execute */
+    /* async, when has data, execute */
     if (newList.length) {
       for (let i = (page - 1) * 10; i < page * 10; i++) {
         pageList.push(
@@ -138,9 +138,8 @@ const mapStateToProps = state => {
   return {
     // focused: state.header.focused,
     /*
-    .state is js obj, .header is immutable obj
-    redux-immutable unify data format, .state .header become immutable obj
-    getIn(): immutable data invoked
+    state is js obj, header is immutable obj
+    redux-immutable unify data format to immutable obj
     */
     focused: state.getIn(['header', 'focused']),
     list: state.getIn(['header', 'list']),
@@ -171,7 +170,6 @@ const mapDispathToProps = dispatch => {
      * @param {num} page 页码
      * @param {num} totalPage 总页码
      * @param {num} spin 换一换图标 dom 节点
-     * @return:
      */
     handleChangePage(page, totalPage, spin) {
       /* replace unit */
