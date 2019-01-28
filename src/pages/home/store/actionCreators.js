@@ -10,7 +10,7 @@ const changHomeData = result => ({
 
 const addHomeList = (list, nextPage) => ({
   type: constants.ADD_ARTICLE_LIST,
-  /* fromJS: js obj transform to immutable obj */
+  /* fromJS: transform to imutable */
   list: list,
   nextPage
 })

@@ -2,7 +2,7 @@ import { fromJS } from 'immutable'
 import * as constants from './constants'
 
 const defaultState = fromJS({
-  /* imutable obj, use .get() get data */
+  /* imutable obj, use get() */
   topicList: [],
   articleList: [],
   recommendList: [],
@@ -11,9 +11,9 @@ const defaultState = fromJS({
 })
 
 const changeHomeData = (state, action) => {
-  /* merge: operate multi immutable obj */
+  /* merge: handle multi imutable */
   return state.merge({
-    /* fromJS: js obj transform to immutable obj */
+    /* fromJS: transform to imutable */
     topicList: fromJS(action.topicList),
     articleList: fromJS(action.articleList),
     recommendList: fromJS(action.recommendList)

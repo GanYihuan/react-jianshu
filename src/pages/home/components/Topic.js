@@ -14,7 +14,7 @@ class Topic extends PureComponent {
           list.map(item => {
             return (
               <TopicItem key={item.get('id')}>
-                {/* item is imutable object, use get() get data */}
+                {/* item is imutable object, use get() */}
                 <img className="topic-pic" src={item.get('imgUrl')} alt="topic-pic" />
                 {item.get('title')}
               </TopicItem>
@@ -27,7 +27,6 @@ class Topic extends PureComponent {
 }
 
 const mapState = state => ({
-  // list: state.get('home').get('topicList')
   list: state.getIn(['home', 'topicList'])
 })
 

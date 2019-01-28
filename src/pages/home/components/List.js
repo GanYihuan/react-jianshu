@@ -10,7 +10,7 @@ import { actionCreators } from '../store'
 
 class List extends PureComponent {
   render() {
-    const { 
+    const {
       list,
       getMoreList,
       page
