@@ -1,6 +1,6 @@
 import React, { PureComponent } from 'react'
 import { connect } from 'react-redux'
-/* 有能力获取 router 里面所有内容 */
+/* get router all content */
 import { withRouter } from 'react-router-dom'
 import { DetailWrapper, Header, Content } from './style'
 import { actionCreators } from './store'
@@ -12,7 +12,7 @@ class Detail extends PureComponent {
     return (
       <DetailWrapper>
         <Header>{title}</Header>
-        {/* dangerouslySetInnerHTML: 不会被转义 */}
+        {/* dangerouslySetInnerHTML: Will not be escaped */}
         <Content dangerouslySetInnerHTML={{ __html: content }} />
       </DetailWrapper>
     )

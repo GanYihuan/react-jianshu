@@ -30,7 +30,7 @@ export const changePage = page => ({
   page
 })
 
-/* redux-thunk 中间件使 action 能返回函数, async */
+/* redux-thunk middleware may action return func, async */
 export const getList = () => {
   return dispatch => {
     axios
