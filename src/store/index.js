@@ -4,27 +4,19 @@
   createStore
 } from 'redux'
 import reducer from './reducer'
-/* redux-thunk */
 // import thunk from 'redux-thunk'
-/* redux-saga */
 import createSagaMiddleware from 'redux-saga'
 import todoSagas from './sagas'
-/* react-redux */
-// import { createStore } from 'redux'
+// import { createStore } from 'redux' // react-redux
 // import reducer from './reducer'
 
-/* redux Browser tool configuration */
-const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose
-
-/* redux-thunk */
-// const enhancer = composeEnhancers(applyMiddleware(thunk))
-/* redux-saga */
-const sagaMiddleware = createSagaMiddleware()
+const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose // redux Browser tool configuration
+// const enhancer = composeEnhancers(applyMiddleware(thunk)) // redux-thunk
+const sagaMiddleware = createSagaMiddleware() // redux-saga
 const enhancer = composeEnhancers(applyMiddleware(sagaMiddleware))
 const store = createStore(reducer, enhancer)
 sagaMiddleware.run(todoSagas)
 
-/* react-redux */
-// const store = createStore(reducer)
+// const store = createStore(reducer) // react-redux
 
 export default store

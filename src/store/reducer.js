@@ -10,15 +10,11 @@ const defaultState = {
   list: [1, 2]
 }
 
-/* state: previous Store save data */
-/* action: Store pass to Reducer `actionTypes` */
-export default (state = defaultState, action) => {
+export default (state = defaultState, action) => { // state: previous Store save data, action: Store pass to Reducer `actionTypes`
   if (action.type === CHANGE_INPUT_VALUE) {
-    /* copy, because Reducer accept state, can't modify state */
-    const newState = JSON.parse(JSON.stringify(state))
+    const newState = JSON.parse(JSON.stringify(state)) // copy, Reducer accept state, can't modify state
     newState.inputValue = action.value
-    /* return to Store */
-    return newState
+    return newState // return to Store
   }
   if (action.type === ADD_TODO_ITEM) {
     const newState = JSON.parse(JSON.stringify(state))

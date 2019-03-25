@@ -24,8 +24,7 @@ class TodoList extends Component {
     this.handleStoreChange = this.handleStoreChange.bind(this)
     this.handleBtnClick = this.handleBtnClick.bind(this)
     this.handleItemClick = this.handleItemClick.bind(this)
-    /* Store change, invoked */
-    store.subscribe(this.handleStoreChange)
+    store.subscribe(this.handleStoreChange) // Store change, invoked
   }
 
 	render() {
@@ -40,8 +39,7 @@ class TodoList extends Component {
 		)
   }
 
-  /* 组件被挂载到页面之后执行, get ajax data */
-  componentDidMount() {
+  componentDidMount() { // 组件被挂载到页面之后执行, get ajax data
     // axios
     // 	.get('/api/todolist')
     // 	.then(res => {
@@ -58,12 +56,10 @@ class TodoList extends Component {
     // 		alert('err')
     // 	})
 
-    /* redux-thunk */
-    // const action = getTodoList()
+    // const action = getTodoList() // redux-thunk
     // store.dispatch(action)
 
-    /* redux-saga */
-    const action = getInitList()
+    const action = getInitList() // redux-saga
     store.dispatch(action)
   }
 
