@@ -7,12 +7,9 @@ class TodoList extends Component {
   Initialization (life circle)
   setup props and state
   */
-  /* constuctor() simular life circle, component init will run */
-  constructor(props) {
-    /* invoked father constructor */
-    super(props)
-    /* when state and props change render() re-render */
-    this.state = {
+  constructor(props) { // constuctor() simular life circle, component init will run
+    super(props) // invoked father constructor
+    this.state = { // when state and props change render() re-render
       inputValue: '',
       list: []
     }
@@ -20,23 +17,19 @@ class TodoList extends Component {
     this.handleBtnClick = this.handleBtnClick.bind(this)
     this.handleItemDelete = this.handleItemDelete.bind(this)
   }
-
-  // state change, render invoked
-  render() {
+  render() { // state change, render invoked
     console.log('render()')
     return (
-      /* <Fragment>: package component, placeholder */
+      // <Fragment>: package component, placeholder
       <Fragment>
         <div>
-          {/* htmlFor: like 'for', focus cursor */}
-          <label htmlFor="insert">input value:</label>
+          <label htmlFor="insert">input value:</label> {/* htmlFor: like 'for', focus cursor */}
           <input
             id="insert"
             className="input"
             value={this.state.inputValue}
             onChange={this.handleInputChange}
-            // this.input -> input dom element
-            ref={input => {
+            ref={input => { // this.input -> input dom element
               this.input = input
             }}
           />
@@ -52,15 +45,10 @@ class TodoList extends Component {
       </Fragment>
     )
   }
-
-  /* Mounting (life circle) */
-  /* component soon mount in page */
-  componentWillMount() {
+  componentWillMount() { /* Mounting (life circle) component soon mount in page */
     console.log('componentWillMount')
   }
-  // render()
-  /* component mount in page after, get sync data */
-  componentDidMount() {
+  componentDidMount() { // render() component mount in page after, get sync data
     console.log('componentDidMount')
     axios
       .get('/api/todolist')
@@ -76,28 +64,23 @@ class TodoList extends Component {
         console.log('err')
       })
   }
-
-  /* Updation (life circle) */
-  /* component update before, your component need to update ? */
+  // Updation (life circle) component update before, your component need to update ?
   shouldComponentUpdate() {
     console.log('shouldComponentUpdate')
     return true
   }
-  /* component update before, shouldComponentUpdate return true will carried out */
+  // component update before, shouldComponentUpdate return true will carried out
   componentWillUpdate() {
     console.log('componentWillUpdate')
   }
-  // render()
-  /* component update after */
+  // render() component update after
   componentDidUpdate() {
     console.log('componentDidUpdate')
   }
-
   getTodoItem() {
     return this.state.list.map((item, index) => {
       return (
-        /* `<div></div>` prevent return two element */
-        /* dangerouslySetInnerHTML: can write `<h1>hello</h1>` */
+        // `<div></div>` prevent return two element, dangerouslySetInnerHTML: can write `<h1>hello</h1>`
         <div key={item}>
           {/*
           <li
@@ -117,57 +100,51 @@ class TodoList extends Component {
       )
     })
   }
-
   handleInputChange(e) {
-    /* e.target: <input> dom element */
-    // const value = e.target.value
-    /* this.input -> 'ref=input' dom element */
-    const value = this.input.value
+    // const value = e.target.value // e.target: <input> dom element
+    const value = this.input.value // this.input -> 'ref=input' dom element
     // this.setState({
     // 	inputValue: e.target.value
     // })
-    /* Can omitted 'return', async Performance optimization */
-    this.setState(() => {
+    this.setState(() => { // Can omitted 'return', async Performance optimization
       return {
         inputValue: value
       }
     })
   }
-
   handleBtnClick() {
     // this.setState({
     // 	list: [...this.state.list, this.state.inputValue],
     // 	inputValue: ''
     // })
-    /* prevState: before modify data */
     this.setState(
-      prevState => {
+      prevState => { // prevState: before modify data
         return {
           list: [...prevState.list, prevState.inputValue],
           inputValue: ''
         }
       },
       () => {
-        /* ensure async setState() has been invoked */
-        console.log(this.ul.querySelectorAll('div').length)
+        console.log(this.ul.querySelectorAll('div').length) // ensure async setState() has been invoked
       }
     )
   }
-
   handleItemDelete(index) {
-    /* copy origin list, because 'immutable': state not allow to change */
+    // copy origin list, because 'immutable': state not allow to change
     // const list = [...this.state.list]
     // list.splice(index, 1)
     // this.setState({
     // 	list: list
     // })
-    this.setState(prevState => {
-      const list = [...prevState.list]
-      list.splice(index, 1)
-      return {
-        list
+    this.setState(
+      prevState => {
+        const list = [...prevState.list]
+        list.splice(index, 1)
+        return {
+          list
+        }
       }
-    })
+    )
   }
 }
 

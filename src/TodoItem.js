@@ -6,31 +6,23 @@ class TodoItem extends Component {
     super(props)
     this.handleClick = this.handleClick.bind(this)
   }
-
   render() {
-    /* father render(), child render() */
-    console.log('child render()')
-    // get father pass func&data
-    const { content, test } = this.props
+    console.log('child render()') // father render(), child render()
+    const { content, test } = this.props // get father pass func&data
     return (
       <div onClick={this.handleClick}>
         {test}-{content}
       </div>
     )
   }
-
-  /* Updation (life circle) */
-  /*
-  when accept param from father component
-  if component first exist in father component, not invoked
-  if component already in father component, invoked
-  */
+  // Updation (life circle)
+  // when accept param from father component
+  // if component first exist in father component, not invoked
+  // if component already in father component, invoked
   componentWillReceiveProps() {
     console.log('child componentWillReceiveProps')
   }
-
-  /* Performance optimization, avoid father component render(), child component render() */
-  shouldComponentUpdate(nextProps, nextState) {
+  shouldComponentUpdate(nextProps, nextState) { // Performance optimization, avoid father component render(), child component render()
     console.log('child shouldComponentUpdate')
     if (nextProps.content !== this.props.content) {
       return true
@@ -38,22 +30,16 @@ class TodoItem extends Component {
       return false
     }
   }
-
-  /* Unmounting (life circle) */
-  /* componet delete from page soon */
-  componentWillUnmount() {
+  componentWillUnmount() { // Unmounting (life circle) componet delete from page soon
     console.log('child componentWillUnmount')
   }
-
   handleClick() {
-    // get father pass func&data
-    const { deleteItem, index } = this.props
+    const { deleteItem, index } = this.props // get father pass func & data
     deleteItem(index)
   }
 }
 
-/* income parameter verify */
-TodoItem.propTypes = {
+TodoItem.propTypes = { // income parameter verify
   test: PropTypes.string.isRequired,
   content: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
   deleteItem: PropTypes.func,
