@@ -10,23 +10,23 @@ import Login from './pages/login'
 import Write from './pages/write'
 
 class App extends Component {
-	render() {
-		return (
-			<Provider store={store}>
-				<BrowserRouter>
-					<div>
-						<Header />
-						<Route path="/" exact component={Home} />
+  render() {
+    return (
+      <Provider store={store}>
+        <BrowserRouter>
+          <div>
+            <Header />
+            <Route path="/" exact component={Home} />
             {/* detail?id=1 */}
             {/* /detail */}
-						<Route path="/detail/:id" exact component={Detail} />
-						<Route path="/login" exact component={Login} />
-						<Route path="/write" exact component={Write} />
-					</div>
-				</BrowserRouter>
-			</Provider>
-		)
-	}
+            <Route path="/detail/:id" exact component={Detail} />
+            <Route path="/login" exact component={Login} />
+            <Route path="/write" exact component={Write} />
+          </div>
+        </BrowserRouter>
+      </Provider>
+    )
+  }
 }
 
 export default App
