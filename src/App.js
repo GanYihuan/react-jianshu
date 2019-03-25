@@ -12,25 +12,19 @@ class App extends Component {
     this.handleToggle = this.handleToggle.bind(this)
     this.handleAddItem = this.handleAddItem.bind(this)
   }
-
   render() {
     return (
       <Fragment>
         {/* add .fade-enter .fade-enter-active .fade-enter-done to `<div>hello</div>` */}
         <CSSTransition
-          // condition
-          in={this.state.show}
+          in={this.state.show} // condition
           timeout={1000}
-          // Prefix
-          classNames='fade'
-          // css hide, dom will remove
-          unmountOnExit
-          // execute after the end of the animation
-          onEntered={el => {
+          classNames='fade' // Prefix
+          unmountOnExit // css hide, dom will remove
+          onEntered={el => { // execute after the end of the animation
             el.style.color = '#f00'
           }}
-          // first show, create .fade-appear to `<div>hello</div>`
-          appear={true}
+          appear={true} // first show, create .fade-appear to `<div>hello</div>`
         >
           <div>hello</div>
         </CSSTransition>
@@ -57,7 +51,6 @@ class App extends Component {
       </Fragment>
     )
   }
-
   handleToggle() {
     this.setState(() => {
       return {
@@ -65,7 +58,6 @@ class App extends Component {
       }
     })
   }
-
   handleAddItem() {
     this.setState(prevState => {
       return {

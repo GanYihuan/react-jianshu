@@ -15,11 +15,7 @@ class TodoItem extends Component {
       </div>
     )
   }
-  // Updation (life circle)
-  // when accept param from father component
-  // if component first exist in father component, not invoked
-  // if component already in father component, invoked
-  componentWillReceiveProps() {
+  componentWillReceiveProps() { // Updation (life circle) when accept param from father component if component first exist in father component, not invoked if component already in father component, invoked
     console.log('child componentWillReceiveProps')
   }
   shouldComponentUpdate(nextProps, nextState) { // Performance optimization, avoid father component render(), child component render()
@@ -34,7 +30,7 @@ class TodoItem extends Component {
     console.log('child componentWillUnmount')
   }
   handleClick() {
-    const { deleteItem, index } = this.props // get father pass func & data
+    const { deleteItem, index } = this.props
     deleteItem(index)
   }
 }

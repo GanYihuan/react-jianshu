@@ -45,10 +45,11 @@ class TodoList extends Component {
       </Fragment>
     )
   }
-  componentWillMount() { /* Mounting (life circle) component soon mount in page */
+  componentWillMount() { // Mounting (life circle) component soon mount in page
     console.log('componentWillMount')
   }
-  componentDidMount() { // render() component mount in page after, get sync data
+  // render()
+  componentDidMount() { // component mount in page after, get sync data
     console.log('componentDidMount')
     axios
       .get('/api/todolist')
@@ -64,17 +65,15 @@ class TodoList extends Component {
         console.log('err')
       })
   }
-  // Updation (life circle) component update before, your component need to update ?
-  shouldComponentUpdate() {
+  shouldComponentUpdate() { // Updation (life circle) component update before, your component need to update ?
     console.log('shouldComponentUpdate')
     return true
   }
-  // component update before, shouldComponentUpdate return true will carried out
-  componentWillUpdate() {
+  componentWillUpdate() { // component update before, shouldComponentUpdate return true will carried out
     console.log('componentWillUpdate')
   }
-  // render() component update after
-  componentDidUpdate() {
+  // render()
+  componentDidUpdate() { // component update after
     console.log('componentDidUpdate')
   }
   getTodoItem() {
@@ -125,7 +124,7 @@ class TodoList extends Component {
         }
       },
       () => {
-        console.log(this.ul.querySelectorAll('div').length) // ensure async setState() has been invoked
+        console.log(this.ul.querySelectorAll('div').length) // this.ul -> 'ref=ul' dom element
       }
     )
   }
