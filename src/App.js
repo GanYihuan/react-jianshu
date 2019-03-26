@@ -18,8 +18,6 @@ class App extends Component {
           <div>
             <Header />
             <Route path='/' exact component={Home} />
-            {/* detail?id=1 */}
-            {/* /detail */}
             <Route path='/detail/:id' exact component={Detail} />
             <Route path='/login' exact component={Login} />
             <Route path='/write' exact component={Write} />

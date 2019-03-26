@@ -15,8 +15,7 @@ import {
   BackTop
 } from './style'
 
-/* PureComponent has invoked shouldComponentUpdate() */
-class Home extends PureComponent {
+class Home extends PureComponent { // PureComponent has invoked shouldComponentUpdate()
   render() {
     const { showScroll } = this.props
     return (
@@ -43,8 +42,7 @@ class Home extends PureComponent {
     )
   }
 
-  /* async request */
-  componentDidMount() {
+  componentDidMount() { // async request
     const { changeHomeData } = this.props
     changeHomeData()
     this.bindEvents()

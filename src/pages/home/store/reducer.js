@@ -2,7 +2,6 @@ import { fromJS } from 'immutable'
 import * as constants from './constants'
 
 const defaultState = fromJS({
-  /* imutable obj, use get() */
   topicList: [],
   articleList: [],
   recommendList: [],
@@ -11,10 +10,8 @@ const defaultState = fromJS({
 })
 
 const changeHomeData = (state, action) => {
-  /* merge: handle multi imutable */
-  return state.merge({
-    /* fromJS: transform to imutable */
-    topicList: fromJS(action.topicList),
+  return state.merge({ // merge: handle multi imutable
+    topicList: fromJS(action.topicList), // fromJS: transform to imutable obj
     articleList: fromJS(action.articleList),
     recommendList: fromJS(action.recommendList)
   })
@@ -22,7 +19,7 @@ const changeHomeData = (state, action) => {
 
 const addArticleList = (state, action) => {
   return state.merge({
-    articleList: state.get('articleList').concat(fromJS(action.list)),
+    articleList: state.get('articleList').concat(fromJS(action.list)), // imutable obj, use get()
     articlePage: action.nextPage
   })
 }
