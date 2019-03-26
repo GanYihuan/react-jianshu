@@ -26,8 +26,7 @@ export const initListAction = data => ({
 	data
 })
 
-/* redux-thunk 中间件使 action 能返回函数, async */
-// export const getTodoList = () => {
+// export const getTodoList = () => { // redux-thunk 中间件使 action 能返回函数, async
 // 	return dispatch => {
 // 		axios
 // 			.get('/todolist.json')
@@ -42,7 +41,6 @@ export const initListAction = data => ({
 // 	}
 // }
 
-/* redux-saga */
-export const getInitList = () => ({
+export const getInitList = () => ({ // redux-saga
 	type: GET_INIT_LIST
 })

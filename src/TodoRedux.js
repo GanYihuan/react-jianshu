@@ -7,8 +7,7 @@ import {
 } from './store/actionCreators'
 import store from './store'
 
-/* 无状态组件 */
-const TodoRedux = props => {
+const TodoRedux = props => { // 无状态组件
 	const {
 		inputValue,
 		changeInputValue,
@@ -42,23 +41,21 @@ const TodoRedux = props => {
 	)
 }
 
-/* Store data Mapping to props */
-const mapStateToProps = state => {
+const mapStateToProps = state => { // Store data Mapping to props
 	return {
 		inputValue: state.inputValue,
 		list: state.list
 	}
 }
 
-/* Store.dispatch Mapping to props */
-const mapDispatchToProps = dispatch => {
+const mapDispatchToProps = dispatch => { // Store.dispatch Mapping to props
 	return {
 		changeInputValue(e) {
 			// const action = {
 			// 	type: CHANGE_INPUT_VALUE,
 			// 	value: e.target.value
 			// }
-			/* return to Store */
+			// return to Store
 			// dispatch(action)
 			const action = getInputChangeAction(e.target.value)
 			store.dispatch(action)
@@ -83,9 +80,7 @@ const mapDispatchToProps = dispatch => {
 	}
 }
 
-/* connect: TodoRedux and Store connect */
-/* return container component(connect() return result) */
-export default connect(
+export default connect( // connect: TodoRedux and Store connect, return container component(connect() return result)
 	mapStateToProps,
 	mapDispatchToProps
 )(TodoRedux)

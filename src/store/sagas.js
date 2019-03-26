@@ -7,17 +7,14 @@ function* getInitList() {
   try {
     const res = yield axios.get('/api/todolist')
     const action = initListAction(res.data)
-    /* return to Store */
-    yield put(action)
+    yield put(action) // return to Store
   } catch (e) {
     console.log('异步错误了！')
   }
 }
 
-/* generator func */
-function* mySaga() {
-  /* when accept 'GET_INIT_LIST', run getInitList */
-  yield takeEvery(GET_INIT_LIST, getInitList)
+function* mySaga() { // generator func
+  yield takeEvery(GET_INIT_LIST, getInitList) // when accept 'GET_INIT_LIST', run getInitList
 }
 
 export default mySaga

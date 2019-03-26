@@ -8,7 +8,6 @@ import reducer from './reducer'
 import createSagaMiddleware from 'redux-saga'
 import todoSagas from './sagas'
 // import { createStore } from 'redux' // react-redux
-// import reducer from './reducer'
 
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose // redux Browser tool configuration
 // const enhancer = composeEnhancers(applyMiddleware(thunk)) // redux-thunk
