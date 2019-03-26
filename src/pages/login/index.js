@@ -1,6 +1,5 @@
 /* eslint-disable no-unused-vars */
-import React from 'react'
-import { PureComponent } from 'react'
+import React, { PureComponent } from 'react'
 import { Redirect } from 'react-router-dom'
 import { connect } from 'react-redux'
 import { LoginWrapper, LoginBox, Input, Button } from './style'

@@ -2,8 +2,7 @@
 import React from 'react'
 import { PureComponent } from 'react'
 import { connect } from 'react-redux'
-/* get router all content */
-import { withRouter } from 'react-router-dom'
+import { withRouter } from 'react-router-dom' // 获取 router 里面所有参数内容
 import { DetailWrapper, Header, Content } from './style'
 import { actionCreators } from './store'
 
@@ -20,8 +19,7 @@ class Detail extends PureComponent {
     )
   }
 
-  /* async, get ajax async data */
-  componentDidMount() {
+  componentDidMount() { // async, get ajax async data
     const { getDetail } = this.props
     getDetail(this.props.match.params.id)
   }
