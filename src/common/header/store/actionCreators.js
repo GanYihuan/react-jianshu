@@ -4,8 +4,7 @@ import * as constants from './constants'
 
 const changeList = data => ({
   type: constants.CHANGE_LIST,
-  /* data changeform to imutable array */
-  data: fromJS(data),
+  data: fromJS(data), // data changeform to imutable array
   totalPage: Math.ceil(data.length / 10)
 })
 
@@ -30,8 +29,7 @@ export const changePage = page => ({
   page
 })
 
-/* redux-thunk middleware may action return func, async */
-export const getList = () => {
+export const getList = () => { // redux-thunk middleware may action return func, async
   return dispatch => {
     axios
       .get('/api/headerList.json')

@@ -1,4 +1,6 @@
-import React, { PureComponent } from 'react'
+/* eslint-disable no-unused-vars */
+import React from 'react'
+import { PureComponent } from 'react'
 import { Redirect } from 'react-router-dom'
 import { connect } from 'react-redux'
 import { LoginWrapper, LoginBox, Input, Button } from './style'
@@ -12,15 +14,15 @@ class Login extends PureComponent {
         <LoginWrapper>
           <LoginBox>
             <Input
-              placeholder="账号"
+              placeholder='账号'
               ref={input => {
                 this.account = input
               }}
             />
             {/* "innerRef" API has been removed in styled-components */}
             <Input
-              placeholder="密码"
-              type="password"
+              placeholder='密码'
+              type='password'
               ref={input => {
                 this.password = input
               }}
@@ -30,7 +32,7 @@ class Login extends PureComponent {
         </LoginWrapper>
       )
     } else {
-      return <Redirect to="/" />
+      return <Redirect to='/' />
     }
   }
 }

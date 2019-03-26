@@ -1,4 +1,6 @@
-import React, { PureComponent } from 'react'
+/* eslint-disable no-unused-vars */
+import React from 'react'
+import { PureComponent } from 'react'
 import { Redirect } from 'react-router-dom'
 import { connect } from 'react-redux'
 
@@ -8,7 +10,7 @@ class Write extends PureComponent {
     if (loginStatus) {
       return <div>写文章页面</div>
     } else {
-      return <Redirect to="/login" />
+      return <Redirect to='/login' />
     }
   }
 }

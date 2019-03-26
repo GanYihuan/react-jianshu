@@ -1,4 +1,6 @@
-import React, { PureComponent } from 'react'
+/* eslint-disable no-unused-vars */
+import React from 'react'
+import { PureComponent } from 'react'
 import { connect } from 'react-redux'
 import {
   TopicWrapper,
@@ -15,7 +17,7 @@ class Topic extends PureComponent {
             return (
               <TopicItem key={item.get('id')}>
                 {/* item is imutable object, use get() */}
-                <img className="topic-pic" src={item.get('imgUrl')} alt="topic-pic" />
+                <img className='topic-pic' src={item.get('imgUrl')} alt='topic-pic' />
                 {item.get('title')}
               </TopicItem>
             )

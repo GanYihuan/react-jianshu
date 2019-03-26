@@ -6,8 +6,7 @@
 import thunk from 'redux-thunk'
 import reducer from './reducer'
 
-/* chrome devTool redux */
-const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose
+const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose // chrome devTool redux
 const store = createStore(reducer, composeEnhancers(applyMiddleware(thunk)))
 
 export default store

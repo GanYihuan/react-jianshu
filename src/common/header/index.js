@@ -1,7 +1,9 @@
+/* eslint-disable no-unused-vars */
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { Link } from 'react-router-dom'
 import { CSSTransition } from 'react-transition-group'
+
 import { actionCreators } from './store'
 import { actionCreators as loginActionCreators } from '../../pages/login/store'
 import {
@@ -32,31 +34,31 @@ class Header extends Component {
     } = this.props
     return (
       <HeaderWrapper>
-        <Link to="/">
+        <Link to='/'>
           <Logo />
         </Link>
         <Nav>
-          <NavItem className="left active">首页</NavItem>
-          <NavItem className="left">下载App</NavItem>
+          <NavItem className='left active'>首页</NavItem>
+          <NavItem className='left'>下载App</NavItem>
           {
-            login ?
-              (
-                <NavItem className="right" onClick={logout}>退出</NavItem>
-              ) :
-              (
-                <Link to="/login">
-                  <NavItem className="right">登陆</NavItem>
+            login
+              ? (
+                <NavItem className='right' onClick={logout}>退出</NavItem>
+              )
+              : (
+                <Link to='/login'>
+                  <NavItem className='right'>登陆</NavItem>
                 </Link>
               )
           }
-          <NavItem className="right">
-            <i className="iconfont">&#xe607;</i>
+          <NavItem className='right'>
+            <i className='iconfont'>&#xe607;</i>
           </NavItem>
           <SearchWrapper>
             <CSSTransition
               in={focused}
               timeout={200}
-              classNames="slide"
+              classNames='slide'
             >
               <NavSearch
                 className={focused ? 'focused' : ''}
@@ -64,19 +66,16 @@ class Header extends Component {
                 onBlur={handleInputBlur}
               />
             </CSSTransition>
-            <i className={focused ? 'focused iconfont zoom' : 'iconfont zoom'}>
-              &#xe600;
-						</i>
+            <i className={focused ? 'focused iconfont zoom' : 'iconfont zoom'}>&#xe600;</i>
             {this.getListArea()}
           </SearchWrapper>
         </Nav>
         <Addition>
-          <Button className="reg">注册</Button>
-          <Link to="/write">
-            <Button className="writting">
-              <i className="iconfont">&#xe603;</i>
-              写文章
-						</Button>
+          <Button className='reg'>注册</Button>
+          <Link to='/write'>
+            <Button className='writting'>
+              <i className='iconfont'>&#xe603;</i>写文章
+            </Button>
           </Link>
         </Addition>
       </HeaderWrapper>
@@ -94,11 +93,9 @@ class Header extends Component {
       handleMouseLeave,
       handleChangePage
     } = this.props
-    /* list imutable array, toJS() changeform to noraml array */
-    const newList = list.toJS()
+    const newList = list.toJS() // list imutable array, toJS() changeform to noraml array
     const pageList = []
-    /* async, when has data, execute */
-    if (newList.length) {
+    if (newList.length) { // async, when has data, execute
       for (let i = (page - 1) * 10; i < page * 10; i++) {
         pageList.push(
           <SearchInfoItem key={newList[i]}>{newList[i]}</SearchInfoItem>
@@ -113,17 +110,17 @@ class Header extends Component {
         >
           <SearchInfoTitle>
             热门搜索
-						<SearchInfoSwitch onClick={() => handleChangePage(page, totalPage, this.spinIcon)}>
+            <SearchInfoSwitch onClick={() => handleChangePage(page, totalPage, this.spinIcon)}>
               <i
-                className="iconfont spin"
+                className='iconfont spin'
                 ref={icon => {
                   this.spinIcon = icon
                 }}
               >
                 &#xe631;
-							</i>
+              </i>
               换一批
-						</SearchInfoSwitch>
+            </SearchInfoSwitch>
           </SearchInfoTitle>
           <SearchInfoList>{pageList}</SearchInfoList>
         </SearchInfo>
@@ -136,12 +133,8 @@ class Header extends Component {
 
 const mapStateToProps = state => {
   return {
-    // focused: state.header.focused,
-    /*
-    state is js obj, header is immutable obj
-    redux-immutable unify data format to immutable obj
-    */
-    focused: state.getIn(['header', 'focused']),
+    // focused: state.header.focused
+    focused: state.getIn(['header', 'focused']), // state is js obj, header is immutable obj, redux-immutable unify data format to immutable obj
     list: state.getIn(['header', 'list']),
     page: state.getIn(['header', 'page']),
     totalPage: state.getIn(['header', 'totalPage']),
@@ -153,8 +146,7 @@ const mapStateToProps = state => {
 const mapDispathToProps = dispatch => {
   return {
     handleInputFocus(list) {
-      /* prevent continued send ajax request, if not data request data */
-      list.size === 0 && dispatch(actionCreators.getList())
+      list.size === 0 && dispatch(actionCreators.getList()) // prevent continued send ajax request, if not data request data
       dispatch(actionCreators.searchFocus())
     },
     handleInputBlur() {
@@ -167,8 +159,7 @@ const mapDispathToProps = dispatch => {
       dispatch(actionCreators.mouseLeave())
     },
     handleChangePage(page, totalPage, spin) {
-      /* replace unit */
-      let originAngle = spin.style.transform.replace(/[^0-9]/gi, '')
+      let originAngle = spin.style.transform.replace(/[^0-9]/gi, '') // replace unit
       if (originAngle) {
         originAngle = parseInt(originAngle, 10)
       } else {

@@ -1,4 +1,6 @@
-import React, { PureComponent } from 'react'
+/* eslint-disable no-unused-vars */
+import React from 'react'
+import { PureComponent } from 'react'
 import { Link } from 'react-router-dom'
 import { connect } from 'react-redux'
 import {
@@ -23,10 +25,10 @@ class List extends PureComponent {
               // /detail?id=
               <Link key={index} to={'/detail/' + item.get('id')}>
                 <ListItem>
-                  <img className="pic" src={item.get('imgUrl')} alt="" />
+                  <img className='pic' src={item.get('imgUrl')} alt='' />
                   <ListInfo>
-                    <h3 className="title">{item.get('title')}</h3>
-                    <p className="desc">{item.get('desc')}</p>
+                    <h3 className='title'>{item.get('title')}</h3>
+                    <p className='desc'>{item.get('desc')}</p>
                   </ListInfo>
                 </ListItem>
               </Link>

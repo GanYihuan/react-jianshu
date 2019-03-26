@@ -12,6 +12,7 @@
   plugins: ['vue'],
   // add your custom rules here
   rules: {
+    'no-unused-vars': 0,
     'accessor-pairs': 2,
     'arrow-spacing': [
       2,
