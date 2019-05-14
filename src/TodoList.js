@@ -23,10 +23,10 @@ class TodoList extends Component {
       // <Fragment>: package component, placeholder
       <Fragment>
         <div>
-          <label htmlFor="insert">input value:</label> {/* htmlFor: like 'for', focus cursor */}
+          <label htmlFor='insert'>input value:</label> {/* htmlFor: like 'for', focus cursor */}
           <input
-            id="insert"
-            className="input"
+            id='insert'
+            className='input'
             value={this.state.inputValue}
             onChange={this.handleInputChange}
             ref={input => { // this.input -> input dom element

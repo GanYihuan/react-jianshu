@@ -1,5 +1,5 @@
 ﻿import React, { Component } from 'react'
-import PropTypes from 'prop-types'
+import PropTypes from 'prop-types' // 数据验证
 
 class TodoItem extends Component {
   constructor(props) {
@@ -48,7 +48,7 @@ TodoItem.propTypes = { // income parameter verify
   // a: PropTypes.node
 }
 
-TodoItem.defaultProps = {
+TodoItem.defaultProps = { // 默认值
   test: 'hello word'
 }
 
