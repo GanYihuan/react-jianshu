@@ -13,7 +13,7 @@ const defaultState = {
 export default (state = defaultState, action) => { // state: previous Store save data, action: Store pass to Reducer `actionTypes`
   if (action.type === CHANGE_INPUT_VALUE) {
     const newState = JSON.parse(JSON.stringify(state)) // copy, Reducer accept state, can't modify state
-    newState.inputValue = action.value
+    newState.inputValue = action.value // action.value: actionCreators.js pass params
     return newState // return to Store
   }
   if (action.type === ADD_TODO_ITEM) {

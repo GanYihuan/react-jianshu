@@ -26,7 +26,7 @@ export const initListAction = data => ({
 	data
 })
 
-// export const getTodoList = () => { // redux-thunk 中间件使 action 能返回函数, async
+// export const getTodoList = () => { // redux-thunk middleware make action return func, async, action invoked dispatch
 // 	return dispatch => {
 // 		axios
 // 			.get('/todolist.json')

@@ -9,7 +9,7 @@ function* getInitList() {
     const action = initListAction(res.data)
     yield put(action) // return to Store
   } catch (e) {
-    console.log('异步错误了！')
+    console.log('failure')
   }
 }
 

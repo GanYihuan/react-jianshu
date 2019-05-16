@@ -40,19 +40,19 @@ const TodoListUI = props => { // no status component, only one render(), can rep
 // 					<Input
 // 						placeholder="input"
 // 						style={{ width: '300px', marginRight: '10px' }}
-// 						value={props.inputValue}
-// 						onChange={props.handleInputChange}
+// 						value={this.props.inputValue}
+// 						onChange={this.props.handleInputChange}
 // 					/>
-// 					<Button type="primary" onClick={props.handleBtnClick}>submit</Button>
+// 					<Button type="primary" onClick={this.props.handleBtnClick}>submit</Button>
 // 				</div>
 // 				<List
 // 					style={{ marginTop: '10px', width: '300px' }}
 // 					bordered
-// 					dataSource={props.list}
+// 					dataSource={this.props.list}
 // 					renderItem={(item, index) => (
 // 						<List.Item
 // 							onClick={() => {
-// 								props.handleItemClick(index)
+// 								this.props.handleItemClick(index)
 // 							}}
 // 						>
 // 							{item}

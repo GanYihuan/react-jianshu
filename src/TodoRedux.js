@@ -55,7 +55,6 @@ const mapDispatchToProps = dispatch => { // Store.dispatch Mapping to props
 			// 	type: CHANGE_INPUT_VALUE,
 			// 	value: e.target.value
 			// }
-			// return to Store
 			// dispatch(action)
 			const action = getInputChangeAction(e.target.value)
 			store.dispatch(action)

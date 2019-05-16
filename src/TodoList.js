@@ -11,7 +11,7 @@ import {
   getAddItemAction,
   // initListAction,
   // getTodoList,
-  getInitList,
+  // getInitList,
 	getDeleteItemAction
 } from './store/actionCreators'
 import TodoListUI from './TodoListUI'
@@ -39,7 +39,7 @@ class TodoList extends Component {
 		)
   }
 
-  componentDidMount() { // 组件被挂载到页面之后执行, get ajax data
+  componentDidMount() { // Execution after the component is mounted to the page, get ajax data
     // axios
     // 	.get('/api/todolist')
     // 	.then(res => {
@@ -57,10 +57,9 @@ class TodoList extends Component {
     // 	})
 
     // const action = getTodoList() // redux-thunk
-    // store.dispatch(action)
+    // const action = getInitList() // redux-saga
 
-    const action = getInitList() // redux-saga
-    store.dispatch(action)
+    // store.dispatch(action)
   }
 
 	handleStoreChange() {
