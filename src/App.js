@@ -1,8 +1,6 @@
-/* eslint-disable no-unused-vars */
 import React, { Component } from 'react'
 import { Provider } from 'react-redux'
 import { BrowserRouter, Route } from 'react-router-dom'
-
 import store from './store'
 import Header from './common/header'
 import Home from './pages/home'

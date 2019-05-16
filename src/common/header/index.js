@@ -1,9 +1,7 @@
-/* eslint-disable no-unused-vars */
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { Link } from 'react-router-dom'
 import { CSSTransition } from 'react-transition-group'
-
 import { actionCreators } from './store'
 import { actionCreators as loginActionCreators } from '../../pages/login/store'
 import {
@@ -81,7 +79,6 @@ class Header extends Component {
       </HeaderWrapper>
     )
   }
-
   getListArea() {
     const {
       focused,
