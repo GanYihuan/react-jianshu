@@ -19,14 +19,13 @@ import TodoListUI from './TodoListUI'
 class TodoList extends Component {
   constructor(props) {
     super(props)
-    this.state = store.getState()
+    this.state = store.getState() // old way get state data
     this.handleInputChange = this.handleInputChange.bind(this)
     this.handleStoreChange = this.handleStoreChange.bind(this)
     this.handleBtnClick = this.handleBtnClick.bind(this)
     this.handleItemClick = this.handleItemClick.bind(this)
     store.subscribe(this.handleStoreChange) // Store change, invoked
   }
-
 	render() {
 		return (
 			<TodoListUI
@@ -38,7 +37,6 @@ class TodoList extends Component {
 			/>
 		)
   }
-
   componentDidMount() { // Execution after the component is mounted to the page, get ajax data
     // axios
     // 	.get('/api/todolist')
@@ -61,11 +59,9 @@ class TodoList extends Component {
 
     // store.dispatch(action)
   }
-
 	handleStoreChange() {
 		this.setState(store.getState())
 	}
-
 	handleInputChange(e) {
 		// const action = {
 		// 	type: CHANGE_INPUT_VALUE,
@@ -74,7 +70,6 @@ class TodoList extends Component {
 		const action = getInputChangeAction(e.target.value)
 		store.dispatch(action)
 	}
-
 	handleBtnClick() {
 		// const action = {
 		// 	type: ADD_TODO_ITEM
@@ -82,7 +77,6 @@ class TodoList extends Component {
 		const action = getAddItemAction()
 		store.dispatch(action)
 	}
-
 	handleItemClick(index) {
 		// const action = {
 		// 	type: DELETE_TODO_ITEM,
