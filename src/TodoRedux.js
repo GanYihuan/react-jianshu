@@ -7,7 +7,7 @@ import {
 } from './store/actionCreators'
 import store from './store'
 
-const TodoRedux = props => { // 无状态组件
+const TodoRedux = props => { // stateless component
 	const {
 		inputValue,
 		changeInputValue,

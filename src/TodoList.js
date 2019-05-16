@@ -10,8 +10,8 @@ import {
 	getInputChangeAction,
   getAddItemAction,
   // initListAction,
-  getTodoList,
-  // getInitList,
+  // getTodoList,
+  getInitList,
 	getDeleteItemAction
 } from './store/actionCreators'
 import TodoListUI from './TodoListUI'
@@ -54,8 +54,8 @@ class TodoList extends Component {
     // 		alert('err')
     // 	})
 
-    const action = getTodoList() // redux-thunk
-    // const action = getInitList() // redux-saga
+    // const action = getTodoList() // redux-thunk
+    const action = getInitList() // redux-saga
 
     store.dispatch(action)
   }
