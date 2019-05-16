@@ -2,7 +2,7 @@
 import { Input, Button, List } from 'antd'
 import 'antd/dist/antd.css'
 
-const TodoListUI = props => { // no status component, only one render(), can replace like that
+const TodoListUI = props => { // stateless component, only one render(), can replace like that
   return (
     <div style={{ margin: '10px' }}>
       <div>

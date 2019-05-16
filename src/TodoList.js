@@ -10,7 +10,7 @@ import {
 	getInputChangeAction,
   getAddItemAction,
   // initListAction,
-  // getTodoList,
+  getTodoList,
   // getInitList,
 	getDeleteItemAction
 } from './store/actionCreators'
@@ -44,20 +44,20 @@ class TodoList extends Component {
     //     const data = res.data
     //     const action = initListAction(data)
     //     store.dispatch(action)
-    // 		  this.setState(() => {
-    // 		   	return {
-    // 		   		list: [...res.data]
-    // 		   	}
+    // 		 this.setState(() => {
+    // 		  return {
+    // 		   	list: [...res.data]
+    // 		   }
     // 		 })
     // 	})
     // 	.catch(() => {
     // 		alert('err')
     // 	})
 
-    // const action = getTodoList() // redux-thunk
+    const action = getTodoList() // redux-thunk
     // const action = getInitList() // redux-saga
 
-    // store.dispatch(action)
+    store.dispatch(action)
   }
 	handleStoreChange() {
 		this.setState(store.getState())

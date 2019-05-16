@@ -5,7 +5,7 @@
 	INIT_LIST_ACTION,
 	DELETE_TODO_ITEM
 } from './actionTypes'
-// import axios from 'axios'
+import axios from 'axios'
 
 export const getInputChangeAction = value => ({
 	type: CHANGE_INPUT_VALUE,
@@ -26,20 +26,20 @@ export const initListAction = data => ({
 	data
 })
 
-// export const getTodoList = () => { // redux-thunk middleware make action return func, async, action invoked dispatch
-// 	return dispatch => {
-// 		axios
-// 			.get('/todolist.json')
-// 			.then(res => {
-// 				const data = res.data
-// 				const action = initListAction(data)
-// 				dispatch(action)
-// 			})
-// 			.catch(() => {
-// 				alert('err')
-// 			})
-// 	}
-// }
+export const getTodoList = () => { // redux-thunk middleware make action return func, async, action invoked dispatch
+	return dispatch => {
+		axios
+			.get('/todolist.json')
+			.then(res => {
+				const data = res.data
+				const action = initListAction(data)
+				dispatch(action)
+			})
+			.catch(() => {
+				alert('err')
+			})
+	}
+}
 
 export const getInitList = () => ({ // redux-saga
 	type: GET_INIT_LIST
