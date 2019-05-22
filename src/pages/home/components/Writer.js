@@ -1,4 +1,3 @@
-/* eslint-disable no-unused-vars */
 import React from 'react'
 import { PureComponent } from 'react'
 import { WriterWrapper } from '../style'
