@@ -54,7 +54,7 @@ class App extends Component {
   handleToggle() {
     this.setState(() => {
       return {
-        show: this.state.show ? false : true
+        show: !this.state.show
       }
     })
   }
