@@ -29,7 +29,8 @@ cnpm install styled-components -S
 cnpm install antd -S
 cnpm install redux -S
 cnpm install redux-thunk -S
-cnpm install redux-saga -S  cnpm install react-redux -S
+cnpm install redux-saga -S
+cnpm install react-redux -S
 cnpm install babel-plugin-transform-decorators-legacy -D
 ```
 
