@@ -143,6 +143,10 @@ const mapStateToProps = state => {
 const mapDispathToProps = dispatch => {
   return {
     handleInputFocus(list) {
+      // const action ={
+      //   type: 'search_focus'
+      // }
+      // dispatch(action)
       list.size === 0 && dispatch(actionCreators.getList()) // prevent continued send ajax request, if not data request data
       dispatch(actionCreators.searchFocus())
     },

@@ -68,8 +68,7 @@ export const NavSearch = styled.input.attrs({
   placeholder: '搜索'
 })`
   box-sizing: border-box;
-  margin-top: 9px;
-  margin-left: 20px;
+  margin: 9px 0 0 20px;
   padding: 0 30px 0 20px;
   border: none;
   border-radius: 19px;

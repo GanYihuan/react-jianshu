@@ -25,7 +25,7 @@ export default (state = defaultState, action) => { // reduxer can't change origi
     case constants.MOUSE_LEAVE:
       return state.set('mouseIn', false)
     case constants.CHANGE_PAGE:
-      return state.set('page', action.page) // action.page: actionCreator data
+      return state.set('page', action.page) // action.page: actionCreator pass data
     default:
       return state
   }

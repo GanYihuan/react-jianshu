@@ -2,7 +2,7 @@ import { fromJS } from 'immutable'
 import axios from 'axios'
 import * as constants from './constants'
 
-const changeList = data => ({
+const changeList = (data) => ({
   type: constants.CHANGE_LIST,
   data: fromJS(data), // data changeform to imutable array
   totalPage: Math.ceil(data.length / 10)
@@ -24,7 +24,7 @@ export const mouseLeave = () => ({
   type: constants.MOUSE_LEAVE
 })
 
-export const changePage = page => ({
+export const changePage = (page) => ({
   type: constants.CHANGE_PAGE,
   page
 })
