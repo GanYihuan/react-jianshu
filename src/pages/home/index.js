@@ -1,13 +1,10 @@
-/* eslint-disable no-unused-vars */
-import React from 'react'
-import { PureComponent } from 'react'
+import React, { PureComponent } from 'react'
 import { connect } from 'react-redux'
 import Topic from './components/Topic'
 import List from './components/List'
 import Recommend from './components/Recommend'
 import Writer from './components/Writer'
 import { actionCreators } from './store'
-// import { BackTop } from './style'
 import {
   HomeWrapper,
   HomeLeft,
@@ -41,22 +38,18 @@ class Home extends PureComponent { // PureComponent has invoked shouldComponentU
       </HomeWrapper>
     )
   }
-
   componentDidMount() { // async request
     const { changeHomeData } = this.props
     changeHomeData()
     this.bindEvents()
   }
-
   componentWillUnmount() {
     const { changeScrollTopShow } = this.props
     window.removeEventListener('scroll', changeScrollTopShow())
   }
-
   handleScrollTop() {
     window.scrollTo(0, 0)
   }
-
   bindEvents() {
     const { changeScrollTopShow } = this.props
     window.addEventListener('scroll', changeScrollTopShow())
