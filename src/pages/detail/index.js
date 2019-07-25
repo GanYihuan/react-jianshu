@@ -1,14 +1,11 @@
-/* eslint-disable no-unused-vars */
-import React from 'react'
-import { PureComponent } from 'react'
+import React, { PureComponent } from 'react'
 import { connect } from 'react-redux'
-import { withRouter } from 'react-router-dom' // 获取 router 里面所有参数内容
-import { DetailWrapper, Header, Content } from './style'
+import { withRouter } from 'react-router-dom'
 import { actionCreators } from './store'
+import { DetailWrapper, Header, Content } from './style'
 
 class Detail extends PureComponent {
   render() {
-    // console.log(this.props.match.params.id)
     const { content, title } = this.props
     return (
       <DetailWrapper>
@@ -18,7 +15,6 @@ class Detail extends PureComponent {
       </DetailWrapper>
     )
   }
-
   componentDidMount() { // async, get ajax async data
     const { getDetail } = this.props
     getDetail(this.props.match.params.id)
