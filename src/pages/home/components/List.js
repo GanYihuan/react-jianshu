@@ -11,11 +11,7 @@ import { actionCreators } from '../store'
 
 class List extends PureComponent {
   render() {
-    const {
-      list,
-      getMoreList,
-      page
-    } = this.props
+    const { list, getMoreList, page } = this.props
     return (
       <div>
         {

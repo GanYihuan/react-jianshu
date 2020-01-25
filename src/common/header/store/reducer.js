@@ -12,6 +12,7 @@ const defaultState = fromJS({ // imutable obj can't modify
 export default (state = defaultState, action) => { // reduxer can't change origin state, immutable.js help you
   switch (action.type) {
     case constants.SEARCH_FOCUS:
+      // return focused: true // origin
       return state.set('focused', true) // set(): immutable func
     case constants.SEARCH_BLUR:
       return state.set('focused', false)

@@ -32,7 +32,7 @@ class Home extends PureComponent { // PureComponent has invoked shouldComponentU
         </HomeRight>
         {
           showScroll
-            ? <BackTop onClick={this.handleScrollTop}>顶部</BackTop>
+            ? <BackTop onClick={this. }>顶部</BackTop>
             : null
         }
       </HomeWrapper>
